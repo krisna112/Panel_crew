@@ -1,0 +1,12 @@
+[Unit]
+Description=Panel Crew Xray API
+After=network-online.target
+
+[Service]
+User=root
+WorkingDirectory=/root/Panel_crew/xray/api
+ExecStart=/usr/bin/python3 -m uvicorn server:app --host 0.0.0.0 --port 8787
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
